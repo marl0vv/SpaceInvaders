@@ -1,0 +1,430 @@
+[gd_scene load_steps=15 format=3 uid="uid://cimnebwjs7ry5"]
+
+[ext_resource type="Theme" uid="uid://coscohxu52m6o" path="res://Assets/Aliens.tres" id="1_2khnb"]
+[ext_resource type="Script" path="res://game.gd" id="1_a3n5e"]
+[ext_resource type="PackedScene" uid="uid://dwsfketgd3apb" path="res://Objects/alien.tscn" id="2_hnvmt"]
+[ext_resource type="AudioStream" uid="uid://87nvbfv73q40" path="res://Sounds/move.ogg" id="4_6ig6b"]
+[ext_resource type="PackedScene" uid="uid://bx4b4f46v0ouq" path="res://Objects/player.tscn" id="7_qdpf2"]
+[ext_resource type="AudioStream" uid="uid://cv4ea4ldbinet" path="res://Music/space_lost.wav" id="8_5fjte"]
+[ext_resource type="AudioStream" uid="uid://ceggvyrt8cncd" path="res://Music/space_begin.wav" id="9_28ob2"]
+[ext_resource type="PackedScene" uid="uid://ogpxijot7m38" path="res://Objects/magic_ship.tscn" id="9_v1ass"]
+[ext_resource type="AudioStream" uid="uid://dt7uadhr7rxch" path="res://Music/space_pause.wav" id="10_743vh"]
+[ext_resource type="AudioStream" uid="uid://i246me0gbw6x" path="res://Music/space_won.wav" id="10_yufh1"]
+[ext_resource type="PackedScene" uid="uid://csrmi75h10owc" path="res://Objects/bunker/bunker_bit.tscn" id="11_uw10i"]
+
+[sub_resource type="Animation" id="Animation_xka23"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameObjects/Player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_fv5k5"]
+resource_name = "revive"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("GameObjects/Player:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eey52"]
+_data = {
+"RESET": SubResource("Animation_xka23"),
+"revive": SubResource("Animation_fv5k5")
+}
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("player", "magic_ship")]
+process_mode = 3
+texture_filter = 1
+script = ExtResource("1_a3n5e")
+step_duration_decrease = 0.025
+screen_width = 600.0
+player = NodePath("GameObjects/Player")
+magic_ship = NodePath("GameObjects/MagicShip")
+
+[node name="GameObjects" type="Node2D" parent="."]
+process_mode = 1
+
+[node name="Player" parent="GameObjects" node_paths=PackedStringArray("score_label", "lives_label", "highscore_label") instance=ExtResource("7_qdpf2")]
+position = Vector2(280, 656)
+speed = 500.0
+fire_cooldown = 0.53
+score_label = NodePath("../../CanvasLayer/Control/ScoreLabel")
+lives_label = NodePath("../../CanvasLayer/Control/LivesLabel")
+highscore_label = NodePath("../../CanvasLayer/Control/HighScoreLabel")
+
+[node name="Alien" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(128, 104)
+
+[node name="Alien2" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(168, 104)
+
+[node name="Alien3" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(208, 104)
+
+[node name="Alien4" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(248, 104)
+
+[node name="Alien5" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(288, 104)
+
+[node name="Alien6" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(328, 104)
+
+[node name="Alien7" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(368, 104)
+
+[node name="Alien8" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(408, 104)
+
+[node name="Alien9" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(448, 104)
+
+[node name="Alien10" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(488, 104)
+
+[node name="Alien11" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(128, 144)
+
+[node name="Alien12" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(168, 144)
+
+[node name="Alien13" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(208, 144)
+
+[node name="Alien14" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(248, 144)
+
+[node name="Alien15" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(288, 144)
+
+[node name="Alien16" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(328, 144)
+
+[node name="Alien17" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(368, 144)
+
+[node name="Alien18" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(408, 144)
+
+[node name="Alien19" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(448, 144)
+
+[node name="Alien20" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(488, 144)
+
+[node name="Alien21" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(128, 184)
+sprite_type = 1
+
+[node name="Alien22" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(168, 184)
+sprite_type = 1
+
+[node name="Alien23" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(208, 184)
+sprite_type = 1
+
+[node name="Alien24" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(248, 184)
+sprite_type = 1
+
+[node name="Alien25" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(288, 184)
+sprite_type = 1
+
+[node name="Alien26" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(328, 184)
+sprite_type = 1
+
+[node name="Alien27" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(368, 184)
+sprite_type = 1
+
+[node name="Alien28" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(408, 184)
+sprite_type = 1
+
+[node name="Alien29" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(448, 184)
+sprite_type = 1
+
+[node name="Alien30" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(488, 184)
+sprite_type = 1
+
+[node name="Alien31" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(128, 224)
+sprite_type = 1
+
+[node name="Alien32" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(168, 224)
+sprite_type = 1
+
+[node name="Alien33" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(208, 224)
+sprite_type = 1
+
+[node name="Alien34" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(248, 224)
+sprite_type = 1
+
+[node name="Alien35" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(288, 224)
+sprite_type = 1
+
+[node name="Alien36" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(328, 224)
+sprite_type = 1
+
+[node name="Alien37" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(368, 224)
+sprite_type = 1
+
+[node name="Alien38" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(408, 224)
+sprite_type = 1
+
+[node name="Alien39" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(448, 224)
+sprite_type = 1
+
+[node name="Alien40" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(488, 224)
+sprite_type = 1
+
+[node name="Alien41" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(128, 264)
+sprite_type = 2
+
+[node name="Alien42" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(168, 264)
+sprite_type = 2
+
+[node name="Alien43" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(208, 264)
+sprite_type = 2
+
+[node name="Alien44" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(248, 264)
+sprite_type = 2
+
+[node name="Alien45" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(288, 264)
+sprite_type = 2
+
+[node name="Alien46" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(328, 264)
+sprite_type = 2
+
+[node name="Alien47" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(368, 264)
+sprite_type = 2
+
+[node name="Alien48" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(408, 264)
+sprite_type = 2
+
+[node name="Alien49" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(448, 264)
+sprite_type = 2
+
+[node name="Alien50" parent="GameObjects" instance=ExtResource("2_hnvmt")]
+position = Vector2(488, 264)
+sprite_type = 2
+
+[node name="MagicShip" parent="GameObjects" node_paths=PackedStringArray("start_position", "end_position") instance=ExtResource("9_v1ass")]
+position = Vector2(672, 40)
+start_position = NodePath("../Start")
+end_position = NodePath("../End")
+speed = 100.0
+moving = true
+
+[node name="Start" type="Node2D" parent="GameObjects"]
+position = Vector2(704, 40)
+
+[node name="End" type="Node2D" parent="GameObjects"]
+position = Vector2(-64, 40)
+
+[node name="EnemyFireResumeTimer" type="Timer" parent="GameObjects"]
+one_shot = true
+
+[node name="ShipSummonTimer" type="Timer" parent="GameObjects"]
+wait_time = 2.0
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_2khnb")
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Score"
+
+[node name="Label3" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 304.0
+offset_right = 384.0
+offset_bottom = 23.0
+text = "Lives"
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_top = 16.0
+offset_right = 80.0
+offset_bottom = 39.0
+text = "00"
+horizontal_alignment = 2
+
+[node name="LivesLabel" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 304.0
+offset_top = 16.0
+offset_right = 384.0
+offset_bottom = 39.0
+text = "3"
+horizontal_alignment = 2
+
+[node name="Label2" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_right = 272.0
+offset_bottom = 23.0
+text = "Hi-Score"
+
+[node name="HighScoreLabel" type="Label" parent="CanvasLayer/Control"]
+visible = false
+layout_mode = 0
+offset_left = 144.0
+offset_top = 16.0
+offset_right = 272.0
+offset_bottom = 39.0
+text = "00"
+horizontal_alignment = 2
+
+[node name="GameWon" type="Control" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_2khnb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/GameWon"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 304.0
+offset_right = 616.0
+offset_bottom = 440.0
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "	[b][color=\"red\"]YOU[/color] [color=\"green\"]WIN[/color]![/b]
+	P[color=\"yellow\"]r[/color]ess space 
+to [color=\"yellow\"]u[/color]nleash [color=\"yellow\"]n[/color]ew wave"
+
+[node name="GameLost" type="Control" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_2khnb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/GameLost"]
+layout_mode = 0
+offset_top = 304.0
+offset_right = 592.0
+offset_bottom = 440.0
+theme_override_font_sizes/normal_font_size = 36
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "	[b][color=\"red\"]YOU[/color] [color=\"blue\"]LOST[/color] :([/b]
+	Pre[color=\"pink\"]s[/color]s sp[color=\"pink\"]a[/color]ce 
+	to start o[color=\"pink\"]ve[/color]r"
+
+[node name="GamePaused" type="Control" parent="CanvasLayer"]
+visible = false
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_2khnb")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/GamePaused"]
+layout_mode = 0
+offset_top = 304.0
+offset_right = 616.0
+offset_bottom = 440.0
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
+text = "Game paused :o
+Press [color='blue']space[/color] to resume"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eey52")
+}
+
+[node name="MoveSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6ig6b")
+
+[node name="GameLostMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_5fjte")
+
+[node name="GameStartedMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_28ob2")
+
+[node name="GameWonMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_yufh1")
+
+[node name="DebugInfoLabel" type="Label" parent="."]
+visible = false
+offset_top = 640.0
+offset_right = 40.0
+offset_bottom = 663.0
+
+[node name="PauseMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_743vh")
+
+[node name="BunkerBit" parent="." instance=ExtResource("11_uw10i")]
+position = Vector2(96, 568)
+
+[node name="BunkerBit2" parent="." instance=ExtResource("11_uw10i")]
+position = Vector2(288, 568)
+
+[node name="BunkerBit3" parent="." instance=ExtResource("11_uw10i")]
+position = Vector2(496, 568)
+
+[connection signal="died" from="GameObjects/Player" to="." method="_on_player_died"]
+[connection signal="timeout" from="GameObjects/EnemyFireResumeTimer" to="." method="_on_enemy_fire_resume_timer_timeout"]
+[connection signal="timeout" from="GameObjects/ShipSummonTimer" to="." method="_on_ship_summon_timer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

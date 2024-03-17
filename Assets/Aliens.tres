@@ -1,0 +1,12 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://coscohxu52m6o"]
+
+[ext_resource type="FontFile" uid="uid://ds5qpjggxnwlm" path="res://Fonts/pixel-operator/PixelOperatorMono8-Bold.ttf" id="1_lupdh"]
+[ext_resource type="FontFile" uid="uid://puptu0g0m6yk" path="res://Fonts/pixel-operator/PixelOperator8-Bold.ttf" id="2_yhvoh"]
+[ext_resource type="FontFile" uid="uid://b84cy533er6rd" path="res://Fonts/pixel-operator/PixelOperatorMono8.ttf" id="3_44vor"]
+[ext_resource type="FontFile" uid="uid://1n07exxhk458" path="res://Fonts/pixel-operator/PixelOperator8.ttf" id="4_ss4fd"]
+
+[resource]
+Label/fonts/font = ExtResource("1_lupdh")
+RichTextLabel/fonts/bold_font = ExtResource("2_yhvoh")
+RichTextLabel/fonts/mono_font = ExtResource("3_44vor")
+RichTextLabel/fonts/normal_font = ExtResource("4_ss4fd")

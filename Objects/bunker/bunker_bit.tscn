@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://csrmi75h10owc"]
+
+[ext_resource type="Texture2D" uid="uid://cafw1xeo21oap" path="res://Assets/aliens_bunker.png" id="1_4wa5w"]
+[ext_resource type="Script" path="res://Objects/bunker/bunker_bit.gd" id="1_giww2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b4ty2"]
+size = Vector2(80, 80)
+
+[node name="BunkerBit" type="Area2D" groups=["Bunker"]]
+texture_filter = 1
+script = ExtResource("1_giww2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_4wa5w")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_b4ty2")

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bx4b4f46v0ouq"]
+
+[ext_resource type="Script" path="res://Objects/player.gd" id="1_r3tn4"]
+[ext_resource type="Texture2D" uid="uid://hg15ltq8bv43" path="res://Assets/aliens.png" id="1_wk3p1"]
+[ext_resource type="PackedScene" uid="uid://dmpjwdny6y4j1" path="res://Objects/bullet.tscn" id="2_gcmmg"]
+[ext_resource type="AudioStream" uid="uid://f7gk7gp46mvy" path="res://Sounds/shoot2.ogg" id="4_40f7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ir0q"]
+size = Vector2(10.6667, 10.6667)
+
+[node name="Player" type="Area2D"]
+texture_filter = 1
+scale = Vector2(3, 3)
+script = ExtResource("1_r3tn4")
+fire_cooldown = 2.0
+bullet_prefab = ExtResource("2_gcmmg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_wk3p1")
+region_enabled = true
+region_rect = Rect2(0, 96, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.58946e-07, 0)
+shape = SubResource("RectangleShape2D_8ir0q")
+
+[node name="ShootSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_40f7l")

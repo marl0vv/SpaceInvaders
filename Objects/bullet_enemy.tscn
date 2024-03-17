@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://idymlhbeqggt"]
+
+[ext_resource type="Script" path="res://Objects/bullet_enemy.gd" id="1_2yoch"]
+[ext_resource type="Texture2D" uid="uid://hg15ltq8bv43" path="res://Assets/aliens.png" id="2_6lg6x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0q0g4"]
+size = Vector2(12, 18)
+
+[node name="BulletEnemy" type="Area2D"]
+texture_filter = 1
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_2yoch")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_6lg6x")
+region_enabled = true
+region_rect = Rect2(0, 64, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_0q0g4")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
